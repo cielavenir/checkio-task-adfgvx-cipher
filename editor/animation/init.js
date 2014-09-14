@@ -40,9 +40,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             }
 
             //YOUR FUNCTION NAME
-            var fname = 'quine';
-
-            var checkioInputStr = fname + '()';
+            var checkioInputStr = data.in || 'encode("Fizz Buzz is x89 XX.", "checkio101")';
 
             var failError = function (dError) {
                 $content.find('.call').html(checkioInputStr);
@@ -69,21 +67,26 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
 
 
             if (data.ext) {
-                var userResult = data.out;
+                var rightResult = data.ext["answer"];
+                var userResult = data.out["code_result"];
                 var result = data.ext["result"];
-                var result_message = data.ext["result_addon"];
+                var result_addon = data.ext["result_addon"];
 
                 //if you need additional info from tests (if exists)
-
                 var explanation = data.ext["explanation"];
-                $content.find('.output').html('Your Result:<pre></pre>');
-                $content.find('.output pre').text(userResult);
+                $content.find('.output').html('&nbsp;Your result:<br>' + JSON.stringify(userResult));
                 if (!result) {
-//                    $content.find('.answer pre').text(user_code);
-//                    $content.find('.answer').addClass('error');
+                    $content.find('.answer').html('Right result:&nbsp;' + JSON.stringify(rightResult));
+                    $content.find('.answer').addClass('error');
                     $content.find('.output').addClass('error');
                     $content.find('.call').addClass('error');
                 }
+                else {
+                    $content.find('.answer').remove();
+                }
+            }
+            else {
+                $content.find('.answer').remove();
             }
 
 

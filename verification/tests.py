@@ -26,12 +26,12 @@ TESTS = {
     "Basics": [
 
     ],
-    "Encode": [
+    #"Encode": [
 
-    ],
-    "Decode": [
+    #],
+    #"Decode": [
 
-    ],
+    #],
     "Random": [
 
     ]
@@ -46,23 +46,24 @@ BASIC_TESTS = [
     ["decode('DFGGXXAAXGAFXGAFXXXGFFXFADDXGA','na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz','piloten')", 'ditiszeergeheim'],
 ]
 
-ENCODE_TESTS = []
+#ENCODE_TESTS = []
 
-DECODE_TESTS = []
+#DECODE_TESTS = []
 
 for t in BASIC_TESTS:
     TESTS["Basics"].append(prepare_test(t[0], t[1]))
 
-for t in ENCODE_TESTS:
-    TESTS["Encode"].append(prepare_test(t[0], t[1]))
+#for t in ENCODE_TESTS:
+#    TESTS["Encode"].append(prepare_test(t[0], t[1]))
 
-for t in DECODE_TESTS:
-    TESTS["Decode"].append(prepare_test(t[0], t[1]))
+#for t in DECODE_TESTS:
+#    TESTS["Decode"].append(prepare_test(t[0], t[1]))
 
 for _ in range(5):
     length = random.randint(20, 30)
     message = "".join(random.choice(string.ascii_lowercase+string.digits) for _ in range(length))
     key1 = list(string.ascii_lowercase+string.digits)
     random.shuffle(key1)
+    key1 = ''.join(key1)
     key2 = ''.join(random.choice(string.ascii_lowercase) for _ in range(7))
     TESTS["Random"].append(prepare_test('decode(encode("{0}", "{1}", "{2}"), "{1}", "{2}")'.format(message, key1, key2), message))
