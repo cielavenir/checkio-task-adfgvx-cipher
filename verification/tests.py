@@ -61,8 +61,8 @@ for t in DECODE_TESTS:
 
 for _ in range(5):
     length = random.randint(20, 30)
-	message = "".join(random.choice(string.ascii_lowercase+string.digits) for _ in range(length))
-	key1 = list(string.ascii_lowercase+string.digits)
-	random.shuffle(key1)
-	key2 = ''.join(random.choice(string.ascii_lowercase) for _ in range(7))
+    message = "".join(random.choice(string.ascii_lowercase+string.digits) for _ in range(length))
+    key1 = list(string.ascii_lowercase+string.digits)
+    random.shuffle(key1)
+    key2 = ''.join(random.choice(string.ascii_lowercase) for _ in range(7))
     TESTS["Random"].append(prepare_test('decode(encode("{0}", "{1}", "{2}"), "{1}", "{2}")'.format(message, key1, key2), message))
