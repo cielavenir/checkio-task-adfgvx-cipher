@@ -1,4 +1,4 @@
-checkio-task-exec-quine
+checkio-task-adfgvx-cipher
 =====================
 
-CheckiO task "Exec Quine"
+CheckiO task "ADFGVX Cipher"
