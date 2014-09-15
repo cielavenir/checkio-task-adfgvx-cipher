@@ -15,10 +15,10 @@ if __name__ == '__main__':
                   "cipher") == 'iamgoing', "decode I am going"
     assert encode("attack at 12:00 am",
                   "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz",
-                  "privacy") == 'DGDDAXDGAADDDADDVDAD', "encode attack"
-    assert decode("DGDDAXDGAADDDADDVDAD",
+                  "privacy") == 'DGDDDAGDDGAFADDFDADVDVFAADVX', "encode attack"
+    assert decode("DGDDDAGDDGAFADDFDADVDVFAADVX",
                   "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz",
-                  "privacy") == 'attackatam', "encode attack"
+                  "privacy") == 'attackat1200am', "decode attack"
     assert encode("ditiszeergeheim",
                   "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz",
                   "piloten") == 'DFGGXXAAXGAFXGAFXXXGFFXFADDXGA', "encode ditiszeergeheim"
