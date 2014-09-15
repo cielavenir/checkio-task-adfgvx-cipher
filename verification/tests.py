@@ -112,8 +112,8 @@ for dummy_counter in range(5):
     random.shuffle(key1)
     key = "".join(key1)
     key1 = ''.join(key1)
-    key2 = string.ascii_lowercase
+    key2 = list(string.ascii_lowercase*2)
     random.shuffle(key2)
-    key2 = key2[:7]
+    key2 = ''.join(key2[:7])
     TESTS["Random"].append(
         prepare_test('decode(encode("{0}", "{1}", "{2}"), "{1}", "{2}")'.format(message, key1, key2), message))
