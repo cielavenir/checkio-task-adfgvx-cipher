@@ -40,7 +40,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210', 'snap.svg_030'],
             }
 
             //YOUR FUNCTION NAME
-            var checkioInputStr = data.in || 'encode("Fizz Buzz is x89 XX.", "checkio101")';
+            var checkioInputStr = data.in || 'encode("I am going", "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g", "cipher")';
 
             var failError = function (dError) {
                 $content.find('.call').html(checkioInputStr);
