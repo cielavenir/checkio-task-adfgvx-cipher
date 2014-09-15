@@ -41,7 +41,7 @@ BASIC_TESTS = [
     ['encode("I am going", "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g", "cipher")', 'FXGAFVXXAXDDDXGA'],
     ['decode("FXGAFVXXAXDDDXGA", "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g", "cipher")', 'iamgoing'],
     ['encode("attack at 12:00 am", "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz", "privacy")', 'DGDDDAGDDGAFADDFDADVDVFAADVX'],
-    ['decode("DGDDDAGDDGAFADDFDADVDVFAADVX", "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz", "privacy")', 'attackatam'],
+    ['decode("DGDDDAGDDGAFADDFDADVDVFAADVX", "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz", "privacy")', 'attackat1200am'],
     ['encode("ditiszeergeheim", "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz", "piloten")', 'DFGGXXAAXGAFXGAFXXXGFFXFADDXGA'],
     ['decode("DFGGXXAAXGAFXGAFXXXGFFXFADDXGA", "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz", "piloten")', 'ditiszeergeheim'],
 ]
