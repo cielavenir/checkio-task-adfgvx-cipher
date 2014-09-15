@@ -13,10 +13,10 @@
 
 
 <p>
-    Let's learn this cipher with example.
-    Our message is "I am going.". First, clean and process the message - "iamgoing"
-    It should contain only latin letters in lowercase and digits. All other characters are skipped.
-    Then fill "adfgvx" table with our secret alphabet "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g".
+    Let's examine the way cipher works using an example. Our message is "I am going." First we must clean and process
+    the message: "iamgoing". It should contain only digits and latin letters in lowercase. All other characters (such as
+    punctuation) are skipped. Then we fill the "adfgvx" table with our secret alphabet
+    "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g".
 </p>
 
 <pre>
@@ -41,8 +41,8 @@ FA DV AG XX DX FA GD XX
 </pre>
 
 <p>
-    Then, a new table is created with a key as a heading. Let's use 'cipher' as a key.
-    If the key contains duplicated letters, the first one should be used.
+    Then, a new table is created with a key as the heading. Let's use 'cipher' as the key.
+    <strong>If the key contains duplicated letters, the first one should be used.</strong>
     So, "checkio" becomes "chekio".
 </p>
 <pre>
@@ -97,8 +97,8 @@ decode('FXGAFVXXAXDDDXGA', 'dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g','cipher') == '
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    This mission gives you a little practice in working with data structures and shows you how to use positional
-    ciphers. Also you can use this cipher for your spy correspondence should you have no computer access.
+    This mission gives you a little practice in working with data structures and positional ciphers. These ciphers could
+    be used for your secret agent correspondence should you have no computer access.
 </p>
 
 <p>
