@@ -44,6 +44,10 @@ BASIC_TESTS = [
     ['decode("DGDDDAGDDGAFADDFDADVDVFAADVX", "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz", "privacy")', 'attackat1200am'],
     ['encode("ditiszeergeheim", "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz", "piloten")', 'DFGGXXAAXGAFXGAFXXXGFFXFADDXGA'],
     ['decode("DFGGXXAAXGAFXGAFXXXGFFXFADDXGA", "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz", "piloten")', 'ditiszeergeheim'],
+    ['encode("I am going", "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g", "weasel")', 'DXGAXAAXXVDDFGFX'],
+    ['decode("DXGAXAAXXVDDFGFX", "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g", "weasel")', 'iamgoing'],
+
+
 ]
 
 ENCODE_TESTS = [
@@ -116,4 +120,5 @@ for dummy_counter in range(5):
     random.shuffle(key)
     key = ''.join(key[:7])
     TESTS["Random"].append(
-        prepare_test('decode(encode("{0}", "{1}", "{2}"), "{1}", "{2}")'.format(message, secret_alphabet, key), message))
+        prepare_test('decode(encode("{0}", "{1}", "{2}"), "{1}", "{2}")'.format(message, secret_alphabet, key),
+                     message))
