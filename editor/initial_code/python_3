@@ -1,8 +1,8 @@
-def encode(message, secret_alphabet1, keyword):
+def encode(message, secret_alphabet, keyword):
     return message
 
 
-def decode(message, secret_alphabet1, keyword):
+def decode(message, secret_alphabet, keyword):
     return message
 
 
