@@ -112,7 +112,7 @@ for dummy_counter in range(5):
     random.shuffle(secret_alphabet)
     secret_alphabet = ''.join(secret_alphabet)
     # Key doesn't have repeated letters
-    key = string.ascii_lowercase
+    key = list(string.ascii_lowercase * 2)
     random.shuffle(key)
     key = ''.join(key[:7])
     TESTS["Random"].append(
