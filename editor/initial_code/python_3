@@ -1,8 +1,8 @@
-def encode(message, secret_alphabet1, keyword):
+def encode(message, secret_alphabet, keyword):
     return message
 
 
-def decode(message, secret_alphabet1, keyword):
+def decode(message, secret_alphabet, keyword):
     return message
 
 
@@ -25,3 +25,9 @@ if __name__ == '__main__':
     assert decode("DFGGXXAAXGAFXGAFXXXGFFXFADDXGA",
                   "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz",
                   "piloten") == 'ditiszeergeheim', "decode ditiszeergeheim"
+    assert encode("I am going",
+                  "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g",
+                  "weasel") == 'DXGAXAAXXVDDFGFX', "encode weasel == weasl"
+    assert decode("DXGAXAAXXVDDFGFX",
+                  "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g",
+                  "weasel") == 'iamgoing', "decode weasel == weasl"
