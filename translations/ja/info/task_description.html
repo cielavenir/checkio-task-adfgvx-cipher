@@ -1,0 +1,100 @@
+<p>
+
+    <a href="http://ja.wikipedia.org/wiki/ADFGVX%E6%9A%97%E5%8F%B7">ADFGVX暗号</a>はドイツ軍が第一次世界大戦中に西部前線で使用した暗号です。<br>
+    ADFGVXは実際にはADFGXという前身の暗号の拡張でした。<br>
+    フリッツ・ナベル大佐により発明され、1918年3月から使われ始めました。<br>
+    この暗号は分画転置暗号であり、ポリュビオスの暗号表と列転置が組み合わされています。<br>
+    この暗号は暗号文で使われる6つの文字、A、D、F、G、V、Xから名付けられました。<br>
+	これらの文字はモールス暗号で互いに大きく異なっていることから選ばれました。<br>
+    無線通信士の誤りを抑えるためという意図がありました。
+</p>
+
+
+<p>
+    この暗号がどのように働くのか例を使って調べてみましょう。<br>
+    我々のメッセージは "I am going." です。まず、これを "iamgoing" のように前処理します。<br>
+    英小文字と数字のみを残します。全ての他の文字は捨てられます。<br>
+    続いてadfgvxテーブルを鍵(換字表鍵) "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g" で作成します。
+</p>
+
+<pre>
+\  A D F G V X
+ \------------
+A| d h x m u 4
+D| p 3 j 6 a o
+F| i b z v 9 w
+G| 1 n 7 0 q k
+V| f s l y c 8
+X| t r 5 e 2 g
+</pre>
+
+<p>
+    この正方形を使うと、メッセージは次のように分画されます:
+</p>
+<pre>
+i  a  m  g  o  i  n  g
+FA DV AG XX DX FA GD XX
+</pre>
+
+<p>
+    続いて、鍵(鍵文字)を使った転置表を作ります。ここでは 'cipher' を使います。<br>
+    <strong>もし鍵の中に文字の重複があったら、最初のものを使います。</strong>"checkio" は "chekio" となります。
+</p>
+<pre>
+c i p h e r
+-----------
+F A D V A G
+X X D X F A
+G D X X
+</pre>
+
+<p>
+    列はアルファベット順に並び替えられ、表は新しい形態になります。
+</p>
+<pre>
+c e h i p r
+-----------
+F A V A D G
+X F X X D A
+G   X D X
+</pre>
+<p>
+    最後に表を列ごとに読みます。結果は "FXGAFVXXAXDDDXGA" となります。
+</p>
+
+<p>
+    2つの関数 "encode" と "decode" を実装して下さい。それぞれの関数はメッセージ(暗号文または平文)、換字表鍵、鍵文字を受け取ります。<br>
+    "encode" 関数はメッセージを前処理して暗号化します。"decode" 関数はメッセージを復号化します(出力は前処理されたもので構いません)。
+</p>
+
+<p>
+    <strong>入力: </strong> 3つの引数: メッセージ、換字表鍵、鍵文字(文字列)
+</p>
+
+<p>
+    <strong>出力: </strong> 暗号化/復号化された文字列
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>例:</strong>
+    </p>
+    <pre class="brush: python">
+encode('I am going.', 'dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g','cipher') == 'FXGAFVXXAXDDDXGA'
+decode('FXGAFVXXAXDDDXGA', 'dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g','cipher') == 'iamgoing'
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>どのように使われるか: </strong>
+    データ構造と転置式暗号を使う練習ができます。<br>
+    また、コンピュータがないところでの秘密通信にこの暗号を使うことができます。
+</p>
+
+<p>
+    <strong>制約:</strong><br>
+    re.match("[a-z]+\Z", keyword)<br>
+    re.match("[a-z0-9]+\Z", secret_alphabet)<br>
+    len(set(secret_alphabet)) == len(secret_alphabet)<br>
+</p>
