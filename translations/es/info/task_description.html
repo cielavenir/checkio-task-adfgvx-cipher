@@ -1,0 +1,69 @@
+<p>El <a href="http://en.wikipedia.org/wiki/ADFGVX_cipher">cifrado &quot;ADFGVX&quot;</a> fue un algoritmo utilizado por el ej&eacute;rcito alem&aacute;n en el frente occidental durante la Primera Guerra Mundial. &ldquo;ADFGVX&rdquo; era en realidad una extensi&oacute;n de un sistema de cifrado anterior llamado &ldquo;ADFGX&rdquo;. Inventado por el coronel Fritz Nebel e introducido en marzo de 1918, el algoritmo era un cifrado de transposici&oacute;n de fraccionamiento, que combinaba un &ldquo;cuadrado de Polibio&rdquo; modificado con un simple transposici&oacute;n de columnas. El algoritmo lleva el nombre de las seis letras que pueden ser utilizadas en el texto cifrado: A, D, F, G, V y X. Dichas letras fueron elegidas deliberadamente porque suenan muy diferentes entre s&iacute; cuando se transmiten a trav&eacute;s de c&oacute;digo Morse, reduciendo as&iacute; la posibilidad de error del operador.</p>
+
+<p>Examinemos la forma en que funciona este algoritmo de cifrado utilizando un ejemplo. Nuestro mensaje es: &quot;I am going&quot;. Primero debemos limpiar y procesar el mensaje: &quot;iamgoing&quot;. Este solo debe contener d&iacute;gitos y letras latinas en min&uacute;sculas, y todos los dem&aacute;s caracteres (tales como puntuaci&oacute;n) se omiten. Luego llenamos una tabla &quot;ADFGVX&quot; con nuestro alfabeto secreto &quot;dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g&rdquo;.</p>
+
+<pre>
+\  A D F G V X
+ \------------
+A| d h x m u 4
+D| p 3 j 6 a o
+F| i b z v 9 w
+G| 1 n 7 0 q k
+V| f s l y c 8
+X| t r 5 e 2 g
+
+</pre>
+
+<p>Usando este cuadrado, el mensaje se convierte a una forma fraccionada (fila-columna):</p>
+
+<pre>
+i  a  m  g  o  i  n  g
+FA DV AG XX DX FA GD XX
+
+</pre>
+
+<p>Enseguida una nueva tabla es creada con una clave (key) como encabezado. Usemos &lsquo;cipher&rsquo; como clave. Si esta contiene letras duplicadas, solo se utiliza la primera. Por lo tanto, &quot;checkio&quot; se convierte en &quot;chekio&quot;.</p>
+
+<pre>
+c i p h e r
+-----------
+F A D V A G
+X X D X F A
+G D X X
+
+</pre>
+
+<p>Las columnas se ordenan alfab&eacute;ticamente bas&aacute;ndose en la palabra clave y la tabla cambia a una nueva forma.</p>
+
+<pre>
+c e h i p r
+-----------
+F A V A D G
+X F X X D A
+G   X D X
+
+</pre>
+
+<p>Entonces se leen las columnas, y el resultado es &quot;FXGAFVXXAXDDDXGA&quot;.</p>
+
+<p>Debes escribir dos funciones - &quot;encode &quot; y &quot;decode&quot; (codificar y decodificar). Cada funci&oacute;n recibe un mensaje (cifrado o abierto), un alfabeto secreto y una palabra clave. La funci&oacute;n &ldquo;encode&rdquo; procesa y encripta el mensaje. La funci&oacute;n &quot;decode&quot; descifra el mensaje codificado (por supuesto, en la versi&oacute;n procesada).</p>
+
+<p><strong>Datos de Entrada: </strong> Tres argumentos. El mensaje, un alfabeto secreto y una palabra clave, como cadenas (str).</p>
+
+<p><strong>Salida: </strong> El mensaje procesado/cifrado como cadena (str).</p>
+
+<div class="for_info_only">
+<p><strong>Ejemplo:</strong></p>
+
+<pre class="brush: python">
+encode(&#39;I am going.&#39;, &#39;dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g&#39;,&#39;cipher&#39;) == &#39;FXGAFVXXAXDDDXGA&#39;
+decode(&#39;FXGAFVXXAXDDDXGA&#39;, &#39;dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g&#39;,&#39;cipher&#39;) == &#39;iamgoing&#39;
+    </pre>
+</div>
+
+<p class="for_info_only"><strong>&iquest;C&oacute;mo se usa?: </strong> Esta misi&oacute;n te ofrece practicar un poco con estructuras de datos y sistemas de cifrado posicionales. Dichos algoritmos de codificado pueden ser utilizados para tu correspondencia de agente secreto cuando no tienes acceso a una computadora.</p>
+
+<p><strong>Condiciones:</strong><br />
+re.match(&quot;[a-z]+\Z&quot;, keyword)<br />
+re.match(&quot;[a-z0-9]+\Z&quot;, secret_alphabet)<br />
+len(set(secret_alphabet)) == len(secret_alphabet)</p>
